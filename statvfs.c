@@ -25,6 +25,9 @@
 #include <sys/types.h>
 
 
+/* *** DEFINES ************************************************************************* */
+#define GIGABYTE ((float)(1024*1024*1024))
+
 /* *** FUNCTIONS *********************************************************************** */
 int main(int argc, char *argv[])
 {
@@ -79,6 +82,10 @@ int main(int argc, char *argv[])
 
 	if(ST_SYNCHRONOUS & fsInfo.f_flag)
 		printf("\tWrites are synched to the filesystem immediately (see the description of O_SYNC in open(2)).\n");
+
+	printf("Free space.....: [%.6f]GB\n", ((float)fsInfo.f_bavail * fsInfo.f_bsize) / GIGABYTE);
+	printf("Total space....: [%.6f]GB\n", ((float)fsInfo.f_blocks * fsInfo.f_bsize) / GIGABYTE);
+	printf("Percentage used: [%.2f]%%\n", (100 * (1 - ((float)fsInfo.f_bavail / (float)fsInfo.f_blocks))));
 
 	return(0);
 }
