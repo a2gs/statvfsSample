@@ -56,32 +56,15 @@ int main(int argc, char *argv[])
 	printf("Maximum filename length.....................: [%lu]\n", fsInfo.f_namemax);
 	printf("Mount flags (described below)...............: [%lu]\n", fsInfo.f_flag);
 
-	if(ST_MANDLOCK & fsInfo.f_flag)
-		printf("\tMandatory locking is permitted on the filesystem (see fcntl(2)).\n");
-
-	if(ST_NOATIME & fsInfo.f_flag)
-		printf("\tDo not update access times; see mount(2).\n");
-
-	if(ST_NODEV & fsInfo.f_flag)
-		printf("\tDisallow access to device special files on this filesystem.\n");
-
-	if(ST_NODIRATIME & fsInfo.f_flag)
-		printf("\tDo not update directory access times; see mount(2).\n");
-
-	if(ST_NOEXEC & fsInfo.f_flag)
-		printf("\tExecution of programs is disallowed on this filesystem.\n");
-
-	if(ST_NOSUID & fsInfo.f_flag)
-		printf("\tThe set-user-ID and set-group-ID bits are ignored by exec(3) for executable files on this filesystem.\n");
-
-	if(ST_RDONLY & fsInfo.f_flag)
-		printf("\tThis filesystem is mounted read-only.\n");
-
-	if(ST_RELATIME & fsInfo.f_flag)
-		printf("\tUpdate atime relative to mtime/ctime; see mount(2).\n");
-
-	if(ST_SYNCHRONOUS & fsInfo.f_flag)
-		printf("\tWrites are synched to the filesystem immediately (see the description of O_SYNC in open(2)).\n");
+	if(ST_MANDLOCK    & fsInfo.f_flag) printf("\tMandatory locking is permitted on the filesystem (see fcntl(2)).\n");
+	if(ST_NOATIME     & fsInfo.f_flag) printf("\tDo not update access times; see mount(2).\n");
+	if(ST_NODEV       & fsInfo.f_flag) printf("\tDisallow access to device special files on this filesystem.\n");
+	if(ST_NODIRATIME  & fsInfo.f_flag) printf("\tDo not update directory access times; see mount(2).\n");
+	if(ST_NOEXEC      & fsInfo.f_flag) printf("\tExecution of programs is disallowed on this filesystem.\n");
+	if(ST_NOSUID      & fsInfo.f_flag) printf("\tThe set-user-ID and set-group-ID bits are ignored by exec(3) for executable files on this filesystem.\n");
+	if(ST_RDONLY      & fsInfo.f_flag) printf("\tThis filesystem is mounted read-only.\n");
+	if(ST_RELATIME    & fsInfo.f_flag) printf("\tUpdate atime relative to mtime/ctime; see mount(2).\n");
+	if(ST_SYNCHRONOUS & fsInfo.f_flag) printf("\tWrites are synched to the filesystem immediately (see the description of O_SYNC in open(2)).\n");
 
 	printf("Free space..................................: [%.6f]GB\n", ((float)fsInfo.f_bavail * fsInfo.f_bsize) / GIGABYTE);
 	printf("Total space.................................: [%.6f]GB\n", ((float)fsInfo.f_blocks * fsInfo.f_bsize) / GIGABYTE);
