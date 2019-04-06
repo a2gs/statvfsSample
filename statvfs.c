@@ -3,7 +3,7 @@
  *
  * statvfs(2) usage sample (get filesystem information/statistics).
  *
- * Public domain
+ * Public Domain
  *
  */
 
@@ -26,7 +26,7 @@
 
 
 /* *** FUNCTIONS *********************************************************************** */
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	struct statvfs fsInfo;
 
