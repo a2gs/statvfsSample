@@ -3,7 +3,7 @@
  *
  * statvfs(2) usage sample (get filesystem information/statistics).
  *
- * Public Domain
+ * MIT License
  *
  */
 
